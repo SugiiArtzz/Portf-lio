@@ -1,41 +1,49 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
+import Image from "next/image"
+
+// Importe sua imagem aqui
+import log from "./SpaayFood.png"
+import gege from "./caminhao.jpg"
+import kiki from "./erp.jpg"
+import kaka from "./saude.jpg"
 
 const projects = [
   {
     id: 1,
-    title: "Nome do Projeto 1",
-    description: "Descrição do seu projeto aqui. Explique o que foi desenvolvido e quais tecnologias foram utilizadas.",
-    tags: ["React", "Next.js", "PostgreSQL"],
-    image: null,
+    title: "SaaS Gerenciador de Pedidos",
+    description: "Ecossistema completo de delivery multi-nicho. Inclui aplicativo móvel para clientes, painel administrativo web para lojistas e API robusta para gestão de pedidos, pagamentos e logística de entregas em tempo real.",
+    tags: ["Flutter", "PHP", "PostgreSQL","API REST","Mobile"],
+    // AQUI: Passe apenas a variável importada, não o componente
+    image: log, 
     github: "#",
     live: "#",
   },
   {
     id: 2,
-    title: "Nome do Projeto 2",
-    description: "Descrição do seu projeto aqui. Explique o que foi desenvolvido e quais tecnologias foram utilizadas.",
-    tags: ["PHP", "PostgreSQL", "API"],
-    image: null,
+    title: "Gestão de Frotas",
+    description: "Sistema web para controle logístico e administrativo de veículos. Gerencia manutenções preventivas, alocação de motoristas e custos operacionais, garantindo integridade de dados através de uma estrutura robusta em PostgreSQL.",
+    tags: ["PHP", "PostgreSQL", "Bootstrap","MVC"],
+    image: gege, // Padronizado para minúsculo
     github: "#",
     live: "#",
   },
   {
     id: 3,
-    title: "Nome do Projeto 3",
-    description: "Descrição do seu projeto aqui. Explique o que foi desenvolvido e quais tecnologias foram utilizadas.",
-    tags: ["Java", "React", "Git"],
-    image: null,
+    title: "Sistema ERP",
+    description: "Desenvolvimento e sustentação do sistema ZION, focado em logística e gestão de obras. Trabalhei na otimização de consultas SQL complexas, resolução de bugs críticos e criação de módulos para controle de fluxo de materiais e processos internos da empresa.",
+    tags: ["PHP", "PostgreSQL", "Git"],
+    image: kiki,
     github: "#",
     live: "#",
   },
   {
     id: 4,
-    title: "Nome do Projeto 4",
-    description: "Descrição do seu projeto aqui. Explique o que foi desenvolvido e quais tecnologias foram utilizadas.",
-    tags: ["Next.js", "PostgreSQL", "API"],
-    image: null,
+    title: "Sistema Hospitalar",
+    description: "O Sprint Saúde é uma solução web desenvolvida para otimizar o fluxo de atendimento em ambientes médicos. O foco principal do sistema é reduzir o tempo de espera e organizar a jornada do paciente, desde a recepção até o pós-atendimento, garantindo integridade dos dados e agilidade para a equipe médica.",
+    tags: ["PHP", "PostgreSQL", "Git"],
+    image: kaka,
     github: "#",
     live: "#",
   },
@@ -56,9 +64,20 @@ export function ProjectsSection() {
               key={project.id}
               className="bg-card border-border hover:border-primary transition-all duration-300 group overflow-hidden"
             >
-              <div className="aspect-video bg-secondary flex items-center justify-center border-b border-border">
-                <span className="text-muted-foreground">Imagem do Projeto</span>
+              {/* O container precisa ser relative para o Image fill funcionar */}
+              <div className="relative aspect-video w-full bg-secondary flex items-center justify-center border-b border-border overflow-hidden">
+                {project.image ? (
+                  <Image 
+                    src={project.image} 
+                    alt={`Imagem do projeto ${project.title}`}
+                    fill 
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <span className="text-muted-foreground">Imagem do Projeto</span>
+                )}
               </div>
+
               <CardHeader className="pb-2">
                 <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                   {project.title}

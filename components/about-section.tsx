@@ -13,16 +13,13 @@ export function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Sou um desenvolvedor apaixonado por criar soluções digitais que fazem a diferença. Com experiência em
-              desenvolvimento web full-stack, busco sempre entregar código de alta qualidade e interfaces intuitivas.
+              Apaixonado por criar o futuro através do código. Como Full Stack, combino lógica robusta e design funcional para entregar soluções digitais que não apenas funcionam, mas encantam e resolvem problemas reais.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed">
               Minha jornada na programação começou há alguns anos e desde então venho me especializando em tecnologias
               modernas para construir aplicações robustas e escaláveis.
             </p>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Quando não estou codando, você pode me encontrar explorando novas tecnologias, contribuindo para projetos
-              open source ou aprendendo algo novo.
+            <p className="text-muted-foreground text-lg leading-relaxed">Mais do que apenas escrever linhas de código, meu objetivo é transformar ideias complexas em sistemas eficientes e escaláveis. Valorizo a colaboração e a melhoria contínua, buscando sempre entregar softwares que unam performance técnica a uma experiência de usuário fluida, garantindo que cada projeto gere impacto real e valor para o negócio.
             </p>
           </div>
 

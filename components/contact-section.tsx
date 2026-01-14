@@ -109,7 +109,7 @@ export function ContactSection() {
               <p className="text-sm text-muted-foreground mb-4">Me encontre nas redes</p>
               <div className="flex gap-4">
                 <a
-                  href="https://instagram.com/seu-usuario"
+                  href="https://www.instagram.com/sugiiartz"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
@@ -117,7 +117,7 @@ export function ContactSection() {
                   <Instagram className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://github.com/seu-usuario"
+                  href="https://github.com/SugiiArtzz"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
@@ -125,7 +125,7 @@ export function ContactSection() {
                   <Github className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://linkedin.com/in/seu-usuario"
+                  href="https://www.linkedin.com/in/gabriel-moreira-624971257/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"

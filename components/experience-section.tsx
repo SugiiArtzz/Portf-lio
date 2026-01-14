@@ -4,34 +4,24 @@ import { Building2, Calendar, MapPin } from "lucide-react"
 const experiences = [
   {
     id: 1,
-    role: "Cargo / Função",
-    company: "Nome da Empresa",
-    location: "Local",
-    period: "Jan 2024 - Presente",
+    role: "Desenvolvedor Full Stack Junior",
+    company: "Axel Construções e Projetos",
+    location: "Manaus, AM",
+    period: "Jun 2025 - Dez 2025",
     description:
-      "Descreva suas responsabilidades e conquistas nesta posição. Mencione projetos importantes, tecnologias utilizadas e impacto gerado.",
-    skills: ["React", "Next.js", "PostgreSQL"],
+      "Liderei o desenvolvimento e manutenção do sistema 'ZION', uma solução ERP focada em logística e gestão de materiais para a construção civil. Atuei de ponta a ponta: desde a modelagem de banco de dados complexos (MySQL) e criação de APIs performáticas com PHP e Python (FastAPI), até a implementação de interfaces modernas e responsivas com React.js e Tailwind CSS. O projeto resultou em maior controle de estoque e eficiência operacional para a empresa, utilizando GitLab para versionamento e CI/CD.",
+    skills: ["PHP", "Python", "React.js", "MySQL", "FastAPI", "Tailwind CSS"],
   },
-  {
-    id: 2,
-    role: "Cargo / Função",
-    company: "Nome da Empresa",
-    location: "Local",
-    period: "Jun 2022 - Dez 2023",
+    {
+   id: 1,
+    role: "Desenvolvedor Full Stack Júnior",
+    company: "JVS",
+    location: "Manaus, AM",
+    period: "Jan 2025 - Presente", 
     description:
-      "Descreva suas responsabilidades e conquistas nesta posição. Mencione projetos importantes, tecnologias utilizadas e impacto gerado.",
-    skills: ["PHP", "Java", "Git"],
-  },
-  {
-    id: 3,
-    role: "Cargo / Função",
-    company: "Nome da Empresa",
-    location: "Local",
-    period: "Jan 2021 - Mai 2022",
-    description:
-      "Descreva suas responsabilidades e conquistas nesta posição. Mencione projetos importantes, tecnologias utilizadas e impacto gerado.",
-    skills: ["React", "PostgreSQL", "API"],
-  },
+      "Atuo no desenvolvimento e sustentação de um ecossistema de produtos digitais voltados para o mercado B2B. Participo de todo o ciclo de vida das aplicações, focando na criação de múltiplos sistemas comerciais. Minhas responsabilidades incluem a manutenção de arquiteturas MVC, modelagem de bancos de dados relacionais e implementação de novas features full stack, garantindo escalabilidade e estabilidade para diversos clientes simultâneos.",
+    skills: ["PHP", "MySQL", "JavaScript", "HTML5/CSS3", "Git", "MVC"],
+    }
 ]
 
 export function ExperienceSection() {

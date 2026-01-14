@@ -29,7 +29,11 @@ export function Header() {
           <ul className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className="text-muted-foreground hover:text-primary transition-colors duration-300">
+                {/* CORREÇÃO AQUI: text-foreground adapta a cor (preto no claro / branco no escuro) */}
+                <a 
+                  href={item.href} 
+                  className="text-foreground hover:text-primary transition-colors duration-300"
+                >
                   {item.label}
                 </a>
               </li>
@@ -48,9 +52,10 @@ export function Header() {
           <ul className="md:hidden mt-4 pb-4 flex flex-col gap-4">
             {navItems.map((item) => (
               <li key={item.href}>
+                {/* CORREÇÃO AQUI TAMBÉM */}
                 <a
                   href={item.href}
-                  className="block text-muted-foreground hover:text-primary transition-colors duration-300"
+                  className="block text-foreground hover:text-primary transition-colors duration-300"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
