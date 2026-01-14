@@ -2,7 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
+import "../styles/globals.css"
 
 const _inter = Inter({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -10,7 +11,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Portfolio | Desenvolvedor Full Stack",
   description: "Portfolio profissional de desenvolvedor Full Stack",
-    generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -19,10 +20,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body className={`font-sans antialiased`}>
-        {children}
-        <Analytics />
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   )
