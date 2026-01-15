@@ -5,47 +5,41 @@ export async function POST(request: Request) {
   try {
     const { name, email, subject, message } = await request.json()
 
-    // Validate required fields
-    if (!name || !email || !subject || !message) {
-      return NextResponse.json({ error: "Todos os campos são obrigatórios" }, { status: 400 })
-    }
+    // --- RASTREADOR DE ERROS (Olhe seu terminal preto ao enviar) ---
+    console.log("Tentando enviar email...")
+    console.log("Usuario:", process.env.SMTP_USER)
+    console.log("Senha configurada?", process.env.SMTP_PASS ? "SIM" : "NÃO (Erro aqui!)")
+    // -------------------------------------------------------------
 
-    // Create transporter - configure with your email provider
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || "smtp.gmail.com",
-      port: Number(process.env.SMTP_PORT) || 587,
+      host: "smtp.gmail.com",
+      port: 587,
       secure: false,
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: process.env.SMTP_USER, // Pega do arquivo .env.local
+        pass: process.env.SMTP_PASS, // Pega do arquivo .env.local
       },
     })
 
-    // Email options
     const mailOptions = {
-      from: `"Portfolio Contact" <${process.env.SMTP_USER}>`,
-      to: "sugiiartzz@gmail.com",
+      from: process.env.SMTP_USER, 
+      to: "sugiiartzz@gmail.com",   // O email chega PARA VOCÊ aqui
       replyTo: email,
       subject: `[Portfolio] ${subject}`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #f97316;">Nova mensagem do Portfolio</h2>
-          <hr style="border: 1px solid #eee;" />
-          <p><strong>Nome:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Assunto:</strong> ${subject}</p>
-          <h3 style="color: #333;">Mensagem:</h3>
-          <p style="background: #f5f5f5; padding: 15px; border-radius: 5px;">${message}</p>
-        </div>
+        <h3>Nova mensagem de: ${name}</h3>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Assunto:</strong> ${subject}</p>
+        <p><strong>Mensagem:</strong><br/>${message}</p>
       `,
     }
 
-    // Send email
     await transporter.sendMail(mailOptions)
+    console.log("SUCESSO! O email foi enviado.")
 
     return NextResponse.json({ success: true })
-  } catch (error) {
-    console.error("Error sending email:", error)
-    return NextResponse.json({ error: "Erro ao enviar email" }, { status: 500 })
+  } catch (error: any) {
+    console.error("ERRO NO ENVIO:", error)
+    return NextResponse.json({ error: "Erro ao enviar" }, { status: 500 })
   }
 }

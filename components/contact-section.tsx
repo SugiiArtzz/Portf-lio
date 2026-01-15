@@ -16,10 +16,17 @@ export function ContactSection() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    
+    // --- CORREÇÃO AQUI: Guardamos a referência do formulário ---
+    const form = e.currentTarget 
+    // -----------------------------------------------------------
+
     setIsLoading(true)
     setStatus("idle")
 
-    const formData = new FormData(e.currentTarget)
+    // Usamos a variável 'form' aqui também
+    const formData = new FormData(form)
+    
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
@@ -36,7 +43,9 @@ export function ContactSection() {
 
       if (response.ok) {
         setStatus("success")
-        e.currentTarget.reset()
+        // --- CORREÇÃO AQUI: Limpamos usando a variável salva ---
+        form.reset() 
+        // -------------------------------------------------------
       } else {
         setStatus("error")
       }
