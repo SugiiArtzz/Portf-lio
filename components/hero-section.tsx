@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
 // 👇 IMPORTE SUA FOTO AQUI
-import ProfileImage from "./jota.jpg" 
+import ProfileImage from "./princi.jpg" 
 
 export function HeroSection() {
   return (
