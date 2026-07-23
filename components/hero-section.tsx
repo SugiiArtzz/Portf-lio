@@ -39,10 +39,9 @@ export function HeroSection() {
             <a href="#projetos">Ver Projetos</a>
           </Button>
           
-          {/* Botão outline com texto claro */}
+          {/* Botão outline para baixar currículo */}
           <Button asChild variant="outline" size="lg" className="px-8 bg-transparent border-input hover:bg-secondary/50 hover:text-foreground">
-            {/* Se tiver um link de curriculo, mude o href abaixo */}
-            <a href="#contato">Entre em Contato</a>
+            <a href="/Curr%C3%ADculo%20Gabriel%20Moreira.pdf" download="Currículo Gabriel Moreira.pdf">Baixar CV</a>
           </Button>
         </div>
       </div>
