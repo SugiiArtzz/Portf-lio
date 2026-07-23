@@ -1,15 +1,15 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
-// 1. ADICIONAMOS "Variants" NA IMPORTAÇÃO
 import { motion, Variants } from "framer-motion"
-import { 
-  Database, 
-  Atom, 
-  Coffee, 
-  GitGraph, 
+import {
+  Database,
+  Atom,
+  Coffee,
+  GitGraph,
   Server,
-  Zap
+  Zap,
+  Code2,
+  Palette,
 } from "lucide-react"
 
 // --- Ícones Customizados ---
@@ -38,89 +38,69 @@ const TypeScriptIcon = () => (
   <svg role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="w-full h-full"><path d="M3 3h18v18H3V3zm10.71 14.86c.5.98 1.51 1.73 3.09 1.73 1.6 0 2.8-.83 2.8-2.33 0-1.41-.81-2.04-1.88-2.49l-.63-.27c-.73-.3-1.21-.71-1.21-1.32 0-.64.55-1.12 1.37-1.12.8 0 1.28.35 1.69.88l1.07-.69c-.51-.82-1.42-1.43-2.79-1.43-1.55 0-2.58.91-2.58 2.14 0 1.07.62 1.74 1.71 2.15l.63.27c.74.31 1.33.76 1.33 1.4 0 .76-.65 1.19-1.58 1.19-.94 0-1.54-.44-2.09-1.04l-1.12.74zm-5.17.08c.32.57.76 1.06 1.56 1.06.8 0 1.27-.31 1.27-1.1v-5.99h-2.1v5.83c0 .2 0 .2-.73.2h-.73v1.08h.72z"/></svg>
 )
 
-// --- Dados ---
+// --- Dados Categorizados ---
 
-const technologies = [
+const categories = [
   {
-    name: "PHP",
-    icon: <PhpIcon />,
-    description: "Backend & APIs",
+    name: "Frontend",
+    icon: <Palette className="w-4 h-4" />,
+    color: "text-sky-400",
+    bgColor: "bg-sky-400/10",
+    items: [
+      { name: "React", icon: <Atom className="w-full h-full" /> },
+      { name: "Next.js", icon: <NextJsIcon /> },
+      { name: "TypeScript", icon: <TypeScriptIcon /> },
+      { name: "Tailwind CSS", icon: <TailwindIcon /> },
+    ],
   },
   {
-    name: "PostgreSQL",
-    icon: <Database className="w-full h-full" />,
-    description: "Database",
+    name: "Backend",
+    icon: <Code2 className="w-4 h-4" />,
+    color: "text-emerald-400",
+    bgColor: "bg-emerald-400/10",
+    items: [
+      { name: "PHP", icon: <PhpIcon /> },
+      { name: "Node.js", icon: <Server className="w-full h-full" /> },
+      { name: "Python", icon: <PythonIcon /> },
+      { name: "Java", icon: <Coffee className="w-full h-full" /> },
+      { name: "FastAPI", icon: <Zap className="w-full h-full" /> },
+    ],
   },
   {
-    name: "React",
-    icon: <Atom className="w-full h-full" />,
-    description: "Frontend Library",
+    name: "Database",
+    icon: <Database className="w-4 h-4" />,
+    color: "text-amber-400",
+    bgColor: "bg-amber-400/10",
+    items: [
+      { name: "PostgreSQL", icon: <Database className="w-full h-full" /> },
+      { name: "MySQL", icon: <Database className="w-full h-full" /> },
+    ],
   },
   {
-    name: "Java",
-    icon: <Coffee className="w-full h-full" />,
-    description: "Backend & Mobile",
-  },
-  {
-    name: "Next.js",
-    icon: <NextJsIcon />,
-    description: "React Framework",
-  },
-  {
-    name: "Git",
-    icon: <GitGraph className="w-full h-full" />,
-    description: "Version Control",
-  },
-  {
-    name: "Node.js",
-    icon: <Server className="w-full h-full" />,
-    description: "Backend Runtime",
-  },
-  {
-    name: "Python",
-    icon: <PythonIcon />,
-    description: "AI & Backend",
-  },
-  {
-    name: "TypeScript",
-    icon: <TypeScriptIcon />,
-    description: "Typed JavaScript",
-  },
-  {
-    name: "Tailwind CSS",
-    icon: <TailwindIcon />,
-    description: "Styling Framework",
-  },
-  {
-    name: "Docker",
-    icon: <DockerIcon />,
-    description: "Containers & Deploy",
-  },
-  {
-    name: "MySQL",
-    icon: <Database className="w-full h-full" />,
-    description: "Database",
-  },
-  {
-    name: "FastAPI",
-    icon: <Zap className="w-full h-full" />,
-    description: "Python API Framework",
+    name: "DevOps",
+    icon: <GitGraph className="w-4 h-4" />,
+    color: "text-purple-400",
+    bgColor: "bg-purple-400/10",
+    items: [
+      { name: "Docker", icon: <DockerIcon /> },
+      { name: "Git", icon: <GitGraph className="w-full h-full" /> },
+    ],
   },
 ]
 
-// --- Configuração da Animação ---
-// 2. FORÇAMOS O TIPO ": Variants" AQUI
-const fadeInAnimationVariants: Variants = {
-  initial: { opacity: 0, y: 30 },
-  animate: (index: number) => ({
+// --- Animation ---
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
     opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.05 * index,
-      duration: 0.5,
-      ease: "easeOut"
-    },
-  }),
+    transition: { staggerChildren: 0.1 },
+  },
+}
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
 }
 
 export function TechSection() {
@@ -128,32 +108,50 @@ export function TechSection() {
     <section id="tecnologias" className="py-24 px-6 bg-secondary/30">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-           Tecnologias
+          Tecnologias
         </h2>
         <div className="w-20 h-1 bg-primary mb-12" />
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {technologies.map((tech, index) => (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {categories.map((category) => (
             <motion.div
-              key={tech.name}
-              variants={fadeInAnimationVariants}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              custom={index}
+              key={category.name}
+              variants={itemVariants}
+              className="rounded-xl border border-border bg-card/50 p-6 hover:border-primary/30 transition-colors duration-300"
             >
-              <Card className="bg-card border-border hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group h-full">
-                <CardContent className="p-6 flex flex-col items-center justify-center text-center h-full">
-                  <div className="w-12 h-12 mb-4 text-muted-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-110 transform">
-                    {tech.icon}
+              <div className="flex items-center gap-3 mb-6">
+                <div className={`w-9 h-9 rounded-lg ${category.bgColor} flex items-center justify-center ${category.color}`}>
+                  {category.icon}
+                </div>
+                <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                  {category.name}
+                </span>
+              </div>
+
+              <div className="space-y-3">
+                {category.items.map((tech) => (
+                  <div
+                    key={tech.name}
+                    className="flex items-center gap-3 group cursor-default"
+                  >
+                    <div className="w-8 h-8 text-muted-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-110 transform">
+                      {tech.icon}
+                    </div>
+                    <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-300">
+                      {tech.name}
+                    </span>
                   </div>
-                  <h3 className="font-semibold text-foreground mb-1 text-lg">{tech.name}</h3>
-                  <p className="text-sm text-muted-foreground">{tech.description}</p>
-                </CardContent>
-              </Card>
+                ))}
+              </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
