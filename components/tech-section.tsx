@@ -1,6 +1,7 @@
 "use client"
 
-import { motion, Variants } from "framer-motion"
+import { useRef, useState, useEffect } from "react"
+import { motion, useInView, Variants } from "framer-motion"
 import {
   Database,
   Atom,
@@ -108,6 +109,39 @@ const categories = [
 
 // --- Animation ---
 
+function AnimatedCounter({ value }: { value: number }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (!isInView) return
+
+    let start = 0
+    const duration = 1200
+    const startTime = performance.now()
+
+    function animate(currentTime: number) {
+      const elapsed = currentTime - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      const easeOut = 1 - Math.pow(1 - progress, 3)
+      setCount(Math.round(easeOut * value))
+
+      if (progress < 1) {
+        requestAnimationFrame(animate)
+      }
+    }
+
+    requestAnimationFrame(animate)
+  }, [isInView, value])
+
+  return (
+    <span ref={ref} className="text-xs text-muted-foreground tabular-nums ml-2">
+      {count}%
+    </span>
+  )
+}
+
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -164,14 +198,15 @@ export function TechSection() {
                           <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-300">
                             {tech.name}
                           </span>
-                          <span className="text-xs text-muted-foreground tabular-nums ml-2">
-                            {tech.level}%
-                          </span>
+                          <AnimatedCounter value={tech.level} />
                         </div>
                         <div className="mt-1 h-1.5 w-full rounded-full bg-secondary overflow-hidden">
-                          <div
-                            className="h-full rounded-full bg-primary transition-all duration-700 ease-out"
-                            style={{ width: `${tech.level}%` }}
+                          <motion.div
+                            className="h-full rounded-full bg-primary"
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${tech.level}%` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1.2, ease: "easeOut" }}
                           />
                         </div>
                       </div>
