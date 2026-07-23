@@ -11,6 +11,9 @@ import {
   Code2,
   Palette,
   FileJson,
+  Terminal,
+  Globe,
+  RefreshCw,
 } from "lucide-react"
 
 // --- Ícones Customizados ---
@@ -33,6 +36,14 @@ const DockerIcon = () => (
 
 const TailwindIcon = () => (
   <svg role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="w-full h-full"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg>
+)
+
+const RedisIcon = () => (
+  <svg role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="w-full h-full"><path d="M12 2L2 7v10l10 5 10-5V7l-10-5zM4 8.5l8 4 8-4M4 12l8 4 8-4M4 15.5l8 4 8-4"/></svg>
+)
+
+const MongoIcon = () => (
+  <svg role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="w-full h-full"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-4-4 1.41-1.41L11 13.17V7h2v6.17l2.59-2.58L17 13l-4 4-1-1z"/></svg>
 )
 
 const TypeScriptIcon = () => (
@@ -63,7 +74,7 @@ const categories = [
     items: [
       { name: "PHP", icon: <PhpIcon />, level: 100 },
       { name: "Node.js", icon: <Server className="w-full h-full" />, level: 60 },
-      { name: "Python", icon: <PythonIcon />, level: 50 },
+      { name: "Python", icon: <PythonIcon />, level: 67 },
       { name: "Java", icon: <Coffee className="w-full h-full" />, level: 55 },
       { name: "FastAPI", icon: <Zap className="w-full h-full" />, level: 55 },
     ],
@@ -74,8 +85,10 @@ const categories = [
     color: "text-amber-400",
     bgColor: "bg-amber-400/10",
     items: [
-      { name: "PostgreSQL", icon: <Database className="w-full h-full" />, level: 85 },
-      { name: "MySQL", icon: <Database className="w-full h-full" />, level: 85 },
+      { name: "PostgreSQL", icon: <Database className="w-full h-full" />, level: 86 },
+      { name: "MySQL", icon: <Database className="w-full h-full" />, level: 87 },
+      { name: "Redis", icon: <RedisIcon />, level: 82 },
+      { name: "MongoDB", icon: <MongoIcon />, level: 70 },
     ],
   },
   {
@@ -86,6 +99,9 @@ const categories = [
     items: [
       { name: "Docker", icon: <DockerIcon />, level: 75 },
       { name: "Git", icon: <GitGraph className="w-full h-full" />, level: 75 },
+      { name: "Linux", icon: <Terminal className="w-full h-full" />, level: 80 },
+      { name: "Nginx", icon: <Globe className="w-full h-full" />, level: 78 },
+      { name: "CI/CD", icon: <RefreshCw className="w-full h-full" />, level: 72 },
     ],
   },
 ]
