@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card"
-import { GraduationCap, Calendar, MapPin, BookOpen } from "lucide-react"
+import { GraduationCap, Calendar, MapPin, BookOpen, Rocket } from "lucide-react"
 
 const education = [
   {
@@ -15,6 +15,22 @@ const education = [
       "Banco de Dados Relacionais",
       "Desenvolvimento Web",
       "Engenharia de Software",
+    ],
+  },
+  {
+    id: 2,
+    course: "Percurso como Empreendedor",
+    institution: "Spaay & Freelancer",
+    icon: <Rocket className="h-6 w-6 text-primary" />,
+    description:
+      "Como desenvolvedor e fundador de um sistema SaaS (Spaay), além de freelancer ao longo da minha jornada, obtive experiência sólida sobre áreas que vão muito além do código. Aprendi a entender a real dor do cliente, executar funcionalidades que realmente agilizam o tempo e entregar soluções concretas para problemas reais. Domino desde a precificação e modelo de negócio até a arquitetura do sistema, implementação, hospedagem e migração de infraestrutura compartilhada para servidor VPS.\n\nNunca houve momento em que algum sistema, integração, ou funcionalidade me impediu de solucionar algo. Se tem algo que eu ainda não conheço, eu descubro, pesquiso e soluciono até conseguir. Se você me perguntar se consigo desenvolver algo, eu nunca vou dizer não — só que preciso de tempo para resolver. Esse foi o maior aprendizado que levei comigo como desenvolvedor e empreendedor.",
+    highlights: [
+      "Modelagem de Negócio",
+      "Migração VPS",
+      "Integrações e APIs",
+      "Segurança e Proteção de Dados",
+      "UI/UX Avançada",
+      "Automação e IA",
     ],
   },
 ]
@@ -34,7 +50,7 @@ export function EducationSection() {
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                    <GraduationCap className="h-6 w-6 text-primary" />
+                    {item.icon || <GraduationCap className="h-6 w-6 text-primary" />}
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-foreground">{item.course}</h3>

@@ -10,6 +10,7 @@ import {
   Zap,
   Code2,
   Palette,
+  FileJson,
 } from "lucide-react"
 
 // --- Ícones Customizados ---
@@ -47,10 +48,11 @@ const categories = [
     color: "text-sky-400",
     bgColor: "bg-sky-400/10",
     items: [
-      { name: "React", icon: <Atom className="w-full h-full" /> },
-      { name: "Next.js", icon: <NextJsIcon /> },
-      { name: "TypeScript", icon: <TypeScriptIcon /> },
-      { name: "Tailwind CSS", icon: <TailwindIcon /> },
+      { name: "React", icon: <Atom className="w-full h-full" />, level: 72 },
+      { name: "Next.js", icon: <NextJsIcon />, level: 70 },
+      { name: "TypeScript", icon: <TypeScriptIcon />, level: 65 },
+      { name: "JavaScript", icon: <FileJson className="w-full h-full" />, level: 80 },
+      { name: "Tailwind CSS", icon: <TailwindIcon />, level: 100 },
     ],
   },
   {
@@ -59,11 +61,11 @@ const categories = [
     color: "text-emerald-400",
     bgColor: "bg-emerald-400/10",
     items: [
-      { name: "PHP", icon: <PhpIcon /> },
-      { name: "Node.js", icon: <Server className="w-full h-full" /> },
-      { name: "Python", icon: <PythonIcon /> },
-      { name: "Java", icon: <Coffee className="w-full h-full" /> },
-      { name: "FastAPI", icon: <Zap className="w-full h-full" /> },
+      { name: "PHP", icon: <PhpIcon />, level: 100 },
+      { name: "Node.js", icon: <Server className="w-full h-full" />, level: 60 },
+      { name: "Python", icon: <PythonIcon />, level: 50 },
+      { name: "Java", icon: <Coffee className="w-full h-full" />, level: 55 },
+      { name: "FastAPI", icon: <Zap className="w-full h-full" />, level: 55 },
     ],
   },
   {
@@ -72,8 +74,8 @@ const categories = [
     color: "text-amber-400",
     bgColor: "bg-amber-400/10",
     items: [
-      { name: "PostgreSQL", icon: <Database className="w-full h-full" /> },
-      { name: "MySQL", icon: <Database className="w-full h-full" /> },
+      { name: "PostgreSQL", icon: <Database className="w-full h-full" />, level: 85 },
+      { name: "MySQL", icon: <Database className="w-full h-full" />, level: 85 },
     ],
   },
   {
@@ -82,8 +84,8 @@ const categories = [
     color: "text-purple-400",
     bgColor: "bg-purple-400/10",
     items: [
-      { name: "Docker", icon: <DockerIcon /> },
-      { name: "Git", icon: <GitGraph className="w-full h-full" /> },
+      { name: "Docker", icon: <DockerIcon />, level: 75 },
+      { name: "Git", icon: <GitGraph className="w-full h-full" />, level: 75 },
     ],
   },
 ]
@@ -134,18 +136,30 @@ export function TechSection() {
                 </span>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {category.items.map((tech) => (
-                  <div
-                    key={tech.name}
-                    className="flex items-center gap-3 group cursor-default"
-                  >
-                    <div className="w-8 h-8 text-muted-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-110 transform">
-                      {tech.icon}
+                  <div key={tech.name} className="group cursor-default">
+                    <div className="flex items-center gap-3 mb-1.5">
+                      <div className="w-8 h-8 text-muted-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-110 transform shrink-0">
+                        {tech.icon}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-300">
+                            {tech.name}
+                          </span>
+                          <span className="text-xs text-muted-foreground tabular-nums ml-2">
+                            {tech.level}%
+                          </span>
+                        </div>
+                        <div className="mt-1 h-1.5 w-full rounded-full bg-secondary overflow-hidden">
+                          <div
+                            className="h-full rounded-full bg-primary transition-all duration-700 ease-out"
+                            style={{ width: `${tech.level}%` }}
+                          />
+                        </div>
+                      </div>
                     </div>
-                    <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-300">
-                      {tech.name}
-                    </span>
                   </div>
                 ))}
               </div>
