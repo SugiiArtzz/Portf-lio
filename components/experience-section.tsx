@@ -4,6 +4,26 @@ import { Building2, Calendar, MapPin } from "lucide-react"
 const experiences = [
   {
     id: 1,
+    role: "CEO & Founder",
+    company: "Spaay",
+    location: "Manaus, AM",
+    period: "Jan 2025 - Presente",
+    description:
+      "Fundador e desenvolvedor responsável pela criação e evolução do Spaay, plataforma SaaS B2B de gestão de pedidos multi-nicho. Liderei todo o ciclo de vida do produto: da concepção do modelo de negócio e planejamento estratégico — incluindo registro de marca e software (INPI) — ao desenvolvimento full stack e infraestrutura. Implementei integrações de pagamento com Pix Dinâmico (Mercado Pago), automações de WhatsApp via Evolution API em containers Docker, e gerenciei deploy em servidores VPS. Atuei diretamente em negociações B2B, contratos NDA e acordos comerciais, entregando uma solução completa que atende estabelecimentos reais.",
+    skills: ["PHP", "React", "Docker", "PostgreSQL", "Mercado Pago", "Tailwind CSS", "VPS"],
+  },
+  {
+    id: 2,
+    role: "Desenvolvedor Full Stack Júnior",
+    company: "JVS",
+    location: "Manaus, AM",
+    period: "Dez 2025 - Mar 2026",
+    description:
+      "Atuei no desenvolvimento e sustentação de um ecossistema de produtos digitais voltados para o mercado B2B. Participei de todo o ciclo de vida das aplicações, focando na criação de múltiplos sistemas comerciais. Minhas responsabilidades incluíram a manutenção de arquiteturas MVC, modelagem de bancos de dados relacionais e implementação de novas features full stack, garantindo escalabilidade e estabilidade para diversos clientes simultâneos.",
+    skills: ["PHP", "MySQL", "JavaScript", "HTML5/CSS3", "Git", "MVC"],
+  },
+  {
+    id: 3,
     role: "Desenvolvedor Full Stack Junior",
     company: "Axel Construções e Projetos",
     location: "Manaus, AM",
@@ -12,16 +32,6 @@ const experiences = [
       "Liderei o desenvolvimento e manutenção do sistema 'ZION', uma solução ERP focada em logística e gestão de materiais para a construção civil. Atuei de ponta a ponta: desde a modelagem de banco de dados complexos (MySQL) e criação de APIs performáticas com PHP e Python (FastAPI), até a implementação de interfaces modernas e responsivas com React.js e Tailwind CSS. O projeto resultou em maior controle de estoque e eficiência operacional para a empresa, utilizando GitLab para versionamento e CI/CD.",
     skills: ["PHP", "Python", "React.js", "MySQL", "FastAPI", "Tailwind CSS"],
   },
-    {
-   id: 1,
-    role: "Desenvolvedor Full Stack Júnior",
-    company: "JVS",
-    location: "Manaus, AM",
-    period: "Jan 2025 - Presente", 
-    description:
-      "Atuo no desenvolvimento e sustentação de um ecossistema de produtos digitais voltados para o mercado B2B. Participo de todo o ciclo de vida das aplicações, focando na criação de múltiplos sistemas comerciais. Minhas responsabilidades incluem a manutenção de arquiteturas MVC, modelagem de bancos de dados relacionais e implementação de novas features full stack, garantindo escalabilidade e estabilidade para diversos clientes simultâneos.",
-    skills: ["PHP", "MySQL", "JavaScript", "HTML5/CSS3", "Git", "MVC"],
-    }
 ]
 
 export function ExperienceSection() {

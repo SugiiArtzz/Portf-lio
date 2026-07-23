@@ -4,46 +4,45 @@ import { ExternalLink, Github } from "lucide-react"
 import Image from "next/image"
 
 // Importe sua imagem aqui
-import log from "./SpaayFood.png"
-import gege from "./caminhao.jpg"
-import kiki from "./erp.jpg"
-import kaka from "./saude.jpg"
+import spaayImg from "./spaay.png"
+import caminhaoImg from "./caminhao.jpg"
+import sprintImg from "./sprint.png"
+import saudeImg from "./saude.jpg"
 
 const projects = [
   {
     id: 1,
-    title: "SaaS Gerenciador de Pedidos",
-    description: "Ecossistema completo de delivery multi-nicho. Inclui aplicativo móvel para clientes, painel administrativo web para lojistas e API robusta para gestão de pedidos, pagamentos e logística de entregas em tempo real.",
-    tags: ["Flutter", "PHP", "PostgreSQL","API REST","Mobile"],
-    // AQUI: Passe apenas a variável importada, não o componente
-    image: log, 
+    title: "Spaay",
+    description: "Plataforma SaaS B2B de gestão de pedidos multi-nicho. Ecossistema completo com app mobile para clientes, painel administrativo web para lojistas e API robusta. Conta com integração de pagamentos via Pix Dinâmico (Mercado Pago), automação de WhatsApp com Evolution API em containers Docker e deploy em servidor VPS. Solução completa de delivery com gestão de pedidos, cardápio digital e logística de entregas em tempo real.",
+    tags: ["PHP", "Flutter", "PostgreSQL", "Docker", "Mercado Pago", "API REST"],
+    image: spaayImg,
     github: "#",
-    live: "#",
+    live: "https://spaay.com.br",
   },
   {
     id: 2,
     title: "Gestão de Frotas",
     description: "Sistema web para controle logístico e administrativo de veículos. Gerencia manutenções preventivas, alocação de motoristas e custos operacionais, garantindo integridade de dados através de uma estrutura robusta em PostgreSQL.",
     tags: ["PHP", "PostgreSQL", "Bootstrap","MVC"],
-    image: gege, // Padronizado para minúsculo
+    image: caminhaoImg,
     github: "#",
     live: "#",
   },
   {
     id: 3,
-    title: "Sistema ERP",
-    description: "Desenvolvimento e sustentação do sistema ZION, focado em logística e gestão de obras. Trabalhei na otimização de consultas SQL complexas, resolução de bugs críticos e criação de módulos para controle de fluxo de materiais e processos internos da empresa.",
-    tags: ["PHP", "PostgreSQL", "Git"],
-    image: kiki,
+    title: "Sprint ERP",
+    description: "Sistema ERP completo focado em logística e gestão de obras. Desenvolvimento e sustentação do sistema ZION com otimização de consultas SQL complexas, resolução de bugs críticos e criação de módulos para controle de fluxo de materiais e processos internos. Arquitetura MVC com foco em performance e integridade dos dados.",
+    tags: ["PHP", "PostgreSQL", "MySQL", "Git", "MVC"],
+    image: sprintImg,
     github: "#",
-    live: "#",
+    live: "https://sprinterp.com.br/",
   },
   {
     id: 4,
     title: "Sistema Hospitalar",
     description: "O Sprint Saúde é uma solução web desenvolvida para otimizar o fluxo de atendimento em ambientes médicos. O foco principal do sistema é reduzir o tempo de espera e organizar a jornada do paciente, desde a recepção até o pós-atendimento, garantindo integridade dos dados e agilidade para a equipe médica.",
     tags: ["PHP", "PostgreSQL", "Git"],
-    image: kaka,
+    image: saudeImg,
     github: "#",
     live: "#",
   },
@@ -102,7 +101,7 @@ export function ProjectsSection() {
                   <Button variant="ghost" size="sm" asChild>
                     <a href={project.live} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="h-4 w-4 mr-2" />
-                      Demo
+                      Acessar
                     </a>
                   </Button>
                 </div>

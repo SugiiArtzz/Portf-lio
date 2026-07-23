@@ -30,7 +30,7 @@ export function HeroSection() {
         
         {/* Subtítulo / Cargo */}
         <h2 className="text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-8 text-balance font-medium">
-          Desenvolvedor Full Stack apaixonado por Tecnologia
+          Full Stack &amp; Empreendedor de Tecnologia
         </h2>
         
         {/* Botões */}
